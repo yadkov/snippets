@@ -1,0 +1,5 @@
+# how to provision k8s object from a yaml file
+# Importants: use template and ending j2. Place file in role's template directory.
+- name: Create config map ts-connections
+  kubernetes.core.k8s:
+    template: deployment-ts-connections.yml.j2

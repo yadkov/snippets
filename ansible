@@ -1,0 +1,11 @@
+# Ansible Vault
+# Encrypt sring from cli - try to encrypt files, because it is easier in future
+ansible-vault encrypt_string --vault-password-file /path/to/vault/file --stdin-name 'variable_name'
+
+
+# How to escape a . in a list , e.g. in the variab.stdout
+# eg variable{
+#            resources [{
+#                     data {
+#                            user.password: somestring
+keyStorePassword: "{{ variable.resources[0].data['user.password'] }}"

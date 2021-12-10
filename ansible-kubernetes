@@ -3,3 +3,10 @@
 - name: Create config map ts-connections
   kubernetes.core.k8s:
     template: deployment-ts-connections.yml.j2
+
+# how to encode strings in base64, e.g. for secrets
+...
+data:
+  user: "{{ secret_ts_credentials_user | b64encode }}" 
+  password: "{{ secret_ts_credentials_password | b64encode }}"  
+...

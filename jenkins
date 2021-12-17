@@ -1,0 +1,9 @@
+# decrypt password
+1. Fetcht the encrypted password from 
+ssh to jenksins server
+Fetch the corresponding string from 
+/jenkins/home/credentials.xml
+
+2. Run the following command in URL <JENKINS_HOME>/script
+println(hudson.util.Secret.decrypt("{<encrypted password>}"))
+

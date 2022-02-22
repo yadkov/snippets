@@ -9,3 +9,13 @@ ansible-vault encrypt_string --vault-password-file /path/to/vault/file --stdin-n
 #                     data {
 #                            user.password: somestring
 keyStorePassword: "{{ variable.resources[0].data['user.password'] }}"
+
+# debug variable
+- name: Debug var
+  debug:
+    var: variable
+
+# loop over a sequence 1 to 5
+- debug:
+    var: item
+  with_sequence: start=1 end=5

@@ -19,3 +19,10 @@ keyStorePassword: "{{ variable.resources[0].data['user.password'] }}"
 - debug:
     var: item
   with_sequence: start=1 end=5
+
+
+## jinja2 templates
+# escape double curly braces 
+{% raw %}{{ databasehost }}{% endraw %} 
+or
+{{ '{{ databasehost }}' }}

@@ -21,6 +21,12 @@ keyStorePassword: "{{ variable.resources[0].data['user.password'] }}"
   with_sequence: start=1 end=5
 
 
+## roles
+# have a separated yml file for encrypted variables which loads automatically:
+# the example works for defaults and vars
+vars/main/vars.yml
+vars/main/vault.yml
+
 ## jinja2 templates
 # escape double curly braces 
 {% raw %}{{ databasehost }}{% endraw %} 

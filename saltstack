@@ -1,2 +1,6 @@
+# Dry-run state
+salt '*' state.apply formula.foo test=True
+
 # list all file on the master
 $ salt '*' cp.list_master
+

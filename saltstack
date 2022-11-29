@@ -4,3 +4,17 @@ salt '*' state.apply formula.foo test=True
 # list all file on the master
 $ salt '*' cp.list_master
 
+# target minions which are in file
+$ salt -L "$(<filename)" test.ping
+
+# run command of the minion
+# --local flag will ignore the master
+salt-call --local state.apply
+
+
+
+#######################################
+# Pillar
+#######################################
+# Refresh pillar
+$ salt '*' saltutil.refresh_pillar

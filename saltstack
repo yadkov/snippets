@@ -2,10 +2,13 @@
 salt '*' state.apply formula.foo test=True
 
 # list all file on the master
-$ salt '*' cp.list_master
+salt '*' cp.list_master
 
 # target minions which are in file
-$ salt -L "$(<filename)" test.ping
+salt -L "$(<filename)" test.ping
+
+# target minions by grains
+salt -G 'os:Debian' test.ping
 
 # run command of the minion
 # --local flag will ignore the master
@@ -17,4 +20,27 @@ salt-call --local state.apply
 # Pillar
 #######################################
 # Refresh pillar
-$ salt '*' saltutil.refresh_pillar
+salt '*' saltutil.refresh_pillar
+
+
+
+#######################################
+# Grains
+#######################################
+# Add a list of append to a list
+salt 'webserver' grains.append roles webserver
+
+# Get a grain
+salt 'webserver' grains.item roles
+
+
+#######################################
+# Jobs
+#######################################
+# list running jobs
+
+# kill a job
+salt '*' saltutil.kill_job <jobid>
+
+# kill all jobs
+salt '*' saltutil.kill_all_jobs

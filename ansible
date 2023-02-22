@@ -1,4 +1,7 @@
 # Ansible Vault
+# save password in file and provide it through env var
+export ANSIBLE_VAULT_PASSWORD_FILE=/path/to/file/with/password
+
 # Encrypt sring from cli - try to encrypt files, because it is easier in future
 ansible-vault encrypt_string --vault-password-file /path/to/vault/file --stdin-name 'variable_name'
 

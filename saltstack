@@ -15,7 +15,8 @@ salt -G 'os:Debian' test.ping
 salt-call --local state.apply
 
 
-
+# Pillar vs grains
+# https://stackoverflow.com/questions/13115700/salt-stack-grains-vs-pillars
 #######################################
 # Pillar
 #######################################
@@ -44,3 +45,24 @@ salt '*' saltutil.kill_job <jobid>
 
 # kill all jobs
 salt '*' saltutil.kill_all_jobs
+
+
+#######################################
+# Variables
+#######################################
+# Print vairable in the log
+## In state file:
+{%- set myname = 'John Doe' %}
+{%- do salt.log.info("My name is " ~ myname) %}
+
+## Run salt-call
+salt-call -l info state.apply statefile
+
+# print variable on the run
+## in state file
+{%- set myname = 'John Doe' %}
+sample.state:
+  test.show_notification:
+    - name: test notification
+    - text: "This is var myname: {{ myname }}"
+

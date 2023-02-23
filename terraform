@@ -1,0 +1,2 @@
+# get private key of service account
+terraform show -json | jq '.values.root_module.resources[] | select(.type == "google_service_account_key")' | jq .values.private_key -r | base64 -d

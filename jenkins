@@ -7,3 +7,5 @@ Fetch the corresponding string from
 2. Run the following command in URL <JENKINS_HOME>/script
 println(hudson.util.Secret.decrypt("{<encrypted password>}"))
 
+# sleep the container
+sleep(time:6000,unit:"SECONDS")

@@ -15,6 +15,11 @@ salt -G 'os:Debian' test.ping
 salt-call --local state.apply
 
 
+#
+# Clear cache
+salt '*' saltutil.clear_cache
+salt-call saltutil.clear_cache
+
 # Pillar vs grains
 # https://stackoverflow.com/questions/13115700/salt-stack-grains-vs-pillars
 #######################################
